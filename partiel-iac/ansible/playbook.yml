@@ -1,0 +1,7 @@
+---
+- name: Provision VM and install application
+  hosts: all
+  become: yes
+
+  roles:
+    - install

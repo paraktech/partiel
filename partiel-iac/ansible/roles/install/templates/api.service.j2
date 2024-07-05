@@ -1,0 +1,13 @@
+[Unit]
+Description=Gunicorn instance to serve API
+After=network.target
+
+[Service]
+User=appuser
+Group=www-data
+WorkingDirectory=/home/appuser/api
+Environment="PATH=/home/appuser/api/venv/bin"
+ExecStart=/home/appuser/api/venv/bin/gunicorn -w 3 -b :5000 api:app
+
+[Install]
+WantedBy=multi-user.target
